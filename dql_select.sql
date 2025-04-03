@@ -11,6 +11,12 @@ INNER JOIN alquiler a ON i.id_inventario=a.id_inventario
 WHERE fecha_alquiler='2005'
 -- 3. Obtén el total de ingresos y la cantidad de alquileres realizados por cada categoría de película. 
 -- 4. Calcula el número total de clientes que han realizado alquileres por cada idioma disponible en un mes específico. 
+SELECT c.nombre, c.apellidos FROM cliente c
+INNER JOIN alquiler a ON c.id_cliente= a.id_cliente
+INNER JOIN inventario i ON a.id_inventario=i.id_inventario
+INNER JOIN pelicula p ON i.id_pelicula=p.id_pelicula
+INNER JOIN idioma i ON p.id_idioma=i.id_idioma
+WHERE fecha_alquiler='2005-05-01';
 -- 5. Encuentra a los clientes que han alquilado todas las películas de una misma categoría. 
 -- 6. Lista las tres ciudades con más clientes activos en el último trimestre. 
 -- 7. Muestra las cinco categorías con menos alquileres registrados en el último año. 
